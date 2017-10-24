@@ -1,0 +1,15 @@
+C:\YQBlog1-2\YQCMS\YQCMS\obj\Debug\ResolveAssemblyReference.cache
+C:\YQBlog1-2\YQCMS\YQCMS\obj\Debug\YQBlog.pdb
+C:\YQBlog1-2\YQCMS\YQCMS\bin\YQBlog.dll
+C:\YQBlog1-2\YQCMS\YQCMS\bin\YQBlog.pdb
+C:\YQBlog1-2\YQCMS\YQCMS\bin\Common.dll
+C:\YQBlog1-2\YQCMS\YQCMS\bin\HtmlAgilityPack.dll
+C:\YQBlog1-2\YQCMS\YQCMS\bin\Microsoft.Web.Infrastructure.dll
+C:\YQBlog1-2\YQCMS\YQCMS\bin\Resource.dll
+C:\YQBlog1-2\YQCMS\YQCMS\bin\Common.pdb
+C:\YQBlog1-2\YQCMS\YQCMS\bin\Resource.pdb
+C:\YQBlog1-2\YQCMS\YQCMS\bin\Microsoft.Web.Infrastructure.xml
+C:\YQBlog1-2\YQCMS\YQCMS\bin\en-us\Resource.resources.dll
+C:\YQBlog1-2\YQCMS\YQCMS\bin\zh-tw\Resource.resources.dll
+C:\YQBlog1-2\YQCMS\YQCMS\bin\zh-Hans\Microsoft.Web.Infrastructure.resources.dll
+C:\YQBlog1-2\YQCMS\YQCMS\obj\Debug\YQBlog.dll

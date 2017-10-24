@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YQCMSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="YQCMSEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="fun_articledel" ReturnType="Collection(Int32)">
+      <Parameter Name="aid" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="fun_initializeExtensionField">
+      <Parameter Name="cateids" Mode="In" Type="String" />
+      <Parameter Name="field" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="cms_varticle" EntityType="YQCMSModel.cms_varticle" />
+    <EntitySet Name="cms_article" EntityType="YQCMSModel.cms_article" />
+    <EntitySet Name="cms_articledetail" EntityType="YQCMSModel.cms_articledetail" />
+    <EntitySet Name="cms_categoryadmins" EntityType="YQCMSModel.cms_categoryadmins" />
+    <EntitySet Name="cms_extend" EntityType="YQCMSModel.cms_extend" />
+    <EntitySet Name="cms_roles" EntityType="YQCMSModel.cms_roles" />
+    <EntitySet Name="cms_userprofile" EntityType="YQCMSModel.cms_userprofile" />
+    <EntitySet Name="cms_users" EntityType="YQCMSModel.cms_users" />
+    <AssociationSet Name="FK__cms_artic__artic__37A5467C" Association="YQCMSModel.FK__cms_artic__artic__37A5467C">
+      <End Role="cms_article" EntitySet="cms_article" />
+      <End Role="cms_articledetail" EntitySet="cms_articledetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_exten__artic__46E78A0C" Association="YQCMSModel.FK__cms_exten__artic__46E78A0C">
+      <End Role="cms_article" EntitySet="cms_article" />
+      <End Role="cms_extend" EntitySet="cms_extend" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_users__rolei__0519C6AF" Association="YQCMSModel.FK__cms_users__rolei__0519C6AF">
+      <End Role="cms_roles" EntitySet="cms_roles" />
+      <End Role="cms_users" EntitySet="cms_users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_userp__useri__0DAF0CB0" Association="YQCMSModel.FK__cms_userp__useri__0DAF0CB0">
+      <End Role="cms_users" EntitySet="cms_users" />
+      <End Role="cms_userprofile" EntitySet="cms_userprofile" />
+    </AssociationSet>
+    <EntitySet Name="cms_vuser" EntityType="YQCMSModel.cms_vuser" />
+    <FunctionImport Name="fun_logicArticleDel" ReturnType="Collection(Int32)">
+      <Parameter Name="aid" Mode="In" Type="Int64" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="cms_varticle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="typeid" Nullable="false" />
+    <Property Type="Int32" Name="cateid" Nullable="false" />
+    <Property Type="String" Name="catepath" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="articleid" Nullable="false" />
+    <Property Type="Int64" Name="parentid" Nullable="false" />
+    <Property Type="Int32" Name="layer" Nullable="false" />
+    <Property Type="Int32" Name="subcount" Nullable="false" />
+    <Property Type="Int64" Name="userid" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="summary" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="content" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="viewcount" Nullable="false" />
+    <Property Type="Int32" Name="orderid" Nullable="false" />
+    <Property Type="Byte" Name="replypermit" Nullable="false" />
+    <Property Type="Byte" Name="status" Nullable="false" />
+    <Property Type="String" Name="ip" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="favor" Nullable="false" />
+    <Property Type="Int32" Name="against" Nullable="false" />
+    <Property Type="Byte" Name="iscommend" Nullable="false" />
+    <Property Type="Byte" Name="istop" Nullable="false" />
+    <Property Type="DateTime" Name="createdate" Nullable="false" />
+    <Property Type="DateTime" Name="lastreplydate" Nullable="false" />
+    <Property Type="String" Name="lastreplyuser" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="lang" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Int32" Name="articletypeid" Nullable="false" />
+    <Property Type="String" Name="rename" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="url" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="seotitle" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="seodescription" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="seokeywords" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="seometas" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="tags" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_3" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_4" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_5" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_6" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_7" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_8" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_9" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_10" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="cms_article">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="typeid" Nullable="false" />
+    <Property Type="Int32" Name="cateid" Nullable="false" />
+    <Property Type="String" Name="catepath" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="articleid" Nullable="false" />
+    <Property Type="Int64" Name="parentid" Nullable="false" />
+    <Property Type="Int32" Name="layer" Nullable="false" />
+    <Property Type="Int32" Name="subcount" Nullable="false" />
+    <Property Type="Int64" Name="userid" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="summary" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="content" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="viewcount" Nullable="false" />
+    <Property Type="Int32" Name="orderid" Nullable="false" />
+    <Property Type="Byte" Name="replypermit" Nullable="false" />
+    <Property Type="Byte" Name="status" Nullable="false" />
+    <Property Type="String" Name="ip" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="favor" Nullable="false" />
+    <Property Type="Int32" Name="against" Nullable="false" />
+    <Property Type="Byte" Name="iscommend" Nullable="false" />
+    <Property Type="Byte" Name="istop" Nullable="false" />
+    <Property Type="DateTime" Name="createdate" Nullable="false" />
+    <Property Type="DateTime" Name="lastreplydate" Nullable="false" />
+    <Property Type="String" Name="lastreplyuser" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="lang" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Int32" Name="articletypeid" Nullable="false" />
+    <Property Type="String" Name="rename" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="cms_articledetail" Relationship="YQCMSModel.FK__cms_artic__artic__37A5467C" FromRole="cms_article" ToRole="cms_articledetail" />
+    <NavigationProperty Name="cms_extend" Relationship="YQCMSModel.FK__cms_exten__artic__46E78A0C" FromRole="cms_article" ToRole="cms_extend" />
+  </EntityType>
+  <EntityType Name="cms_articledetail">
+    <Key>
+      <PropertyRef Name="articleid" />
+    </Key>
+    <Property Type="Int64" Name="articleid" Nullable="false" />
+    <Property Type="String" Name="seotitle" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="seodescription" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="seokeywords" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="seometas" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="tags" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="cms_article" Relationship="YQCMSModel.FK__cms_artic__artic__37A5467C" FromRole="cms_articledetail" ToRole="cms_article" />
+  </EntityType>
+  <EntityType Name="cms_categoryadmins">
+    <Key>
+      <PropertyRef Name="cateid" />
+    </Key>
+    <Property Type="Int32" Name="cateid" Nullable="false" />
+    <Property Type="String" Name="admins" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="cms_extend">
+    <Key>
+      <PropertyRef Name="articleid" />
+    </Key>
+    <Property Type="Int64" Name="articleid" Nullable="false" />
+    <Property Type="String" Name="e_1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_3" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_4" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_5" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_6" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_7" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_8" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_9" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="e_10" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="cms_article" Relationship="YQCMSModel.FK__cms_exten__artic__46E78A0C" FromRole="cms_extend" ToRole="cms_article" />
+  </EntityType>
+  <EntityType Name="cms_roles">
+    <Key>
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Type="Int32" Name="roleid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="rolename" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="cms_users" Relationship="YQCMSModel.FK__cms_users__rolei__0519C6AF" FromRole="cms_roles" ToRole="cms_users" />
+  </EntityType>
+  <EntityType Name="cms_userprofile">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Type="Int64" Name="userid" Nullable="false" />
+    <Property Type="Int32" Name="gender" />
+    <Property Type="String" Name="nickname" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="signature" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="intro" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="birth" />
+    <Property Type="String" Name="location" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="website" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="qq" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="sina" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="facebook" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="twitter" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="medals" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="email" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="isSendEmail" Nullable="false" />
+    <NavigationProperty Name="cms_users" Relationship="YQCMSModel.FK__cms_userp__useri__0DAF0CB0" FromRole="cms_userprofile" ToRole="cms_users" />
+  </EntityType>
+  <EntityType Name="cms_users">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Type="Int64" Name="userid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="userpwd" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="userstate" Nullable="false" />
+    <Property Type="DateTime" Name="usercreatedate" Nullable="false" />
+    <Property Type="DateTime" Name="lastlogindate" Nullable="false" />
+    <Property Type="DateTime" Name="lastactivitydate" Nullable="false" />
+    <NavigationProperty Name="cms_roles" Relationship="YQCMSModel.FK__cms_users__rolei__0519C6AF" FromRole="cms_users" ToRole="cms_roles" />
+    <NavigationProperty Name="cms_userprofile" Relationship="YQCMSModel.FK__cms_userp__useri__0DAF0CB0" FromRole="cms_users" ToRole="cms_userprofile" />
+  </EntityType>
+  <Association Name="FK__cms_artic__artic__37A5467C">
+    <End Type="YQCMSModel.cms_article" Role="cms_article" Multiplicity="1" />
+    <End Type="YQCMSModel.cms_articledetail" Role="cms_articledetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="cms_article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cms_articledetail">
+        <PropertyRef Name="articleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_exten__artic__46E78A0C">
+    <End Type="YQCMSModel.cms_article" Role="cms_article" Multiplicity="1" />
+    <End Type="YQCMSModel.cms_extend" Role="cms_extend" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="cms_article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cms_extend">
+        <PropertyRef Name="articleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_users__rolei__0519C6AF">
+    <End Type="YQCMSModel.cms_roles" Role="cms_roles" Multiplicity="1" />
+    <End Type="YQCMSModel.cms_users" Role="cms_users" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__cms_userp__useri__0DAF0CB0">
+    <End Type="YQCMSModel.cms_users" Role="cms_users" Multiplicity="1" />
+    <End Type="YQCMSModel.cms_userprofile" Role="cms_userprofile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="cms_users">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="cms_userprofile">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="cms_vuser">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Type="Int64" Name="userid" Nullable="false" />
+    <Property Type="Int32" Name="roleid" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="userpwd" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="userstate" Nullable="false" />
+    <Property Type="DateTime" Name="usercreatedate" Nullable="false" />
+    <Property Type="DateTime" Name="lastlogindate" Nullable="false" />
+    <Property Type="DateTime" Name="lastactivitydate" Nullable="false" />
+    <Property Type="Int32" Name="gender" />
+    <Property Type="String" Name="nickname" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="signature" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="intro" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="birth" />
+    <Property Type="String" Name="location" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="website" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="qq" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="sina" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="facebook" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="twitter" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="medals" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="email" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="isSendEmail" />
+  </EntityType>
+</Schema>

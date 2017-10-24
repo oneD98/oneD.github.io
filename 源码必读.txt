@@ -1,0 +1,43 @@
+YqBlog 1.3 源码
+
+网站架构：
+MVC3 EF4.0 SQLSERVER2005 JSON XML
+网站结构：
+权限：.net  membership
+文章分类：category.js（json格式存储）
+文章内容：表 blog_article，blog_articledetail 以及 视图 blog_varticle
+配置信息：general.config
+
+Json
+Json的序列化以及反序列化，主要是文章分类信息部分。
+
+Xml
+xml的序列化以及反序列化，配置信息general.config 部分。
+
+Ajax异步：Jquery方式以及MVC方式
+评论提交，评论显示，文章推荐等
+
+Jquery
+程序中的js基于jquery编写
+用到的一些jquery插件：
+jquery.lazyload.js：图片预加载
+jquery.pager.js：分页
+jquery.dragsort.js：拖曳排序
+jquery.ui.datepicker.js：日期控件
+jquery.ad-gallery.js：相册
+jquery.uploadify-3.1.js：多文件（图片）上传
+kindeditor编辑器
+kindeditor编辑器在mvc3中的应用，主要是文件（图片）上传部分的改造
+SyndicationFeed
+文章以及评论rss
+
+Ninject
+实现Models层与Controllers之间的依赖注入
+
+HtmlAgilityPack
+HTML解析，url投稿功能处有用到
+缓存
+页面缓存 OutputCache 以及对象缓存 HttpRuntime.Cache
+如果你提交了文章发现首页没有更新，那是因为默认设置了5分钟的页面缓存。
+webconfig中caching节点处，你可以在这里修改设置。
+<add name="CacheMain" duration="0" varyByParam="none" varyByCustom="RoleAndTheme"/>

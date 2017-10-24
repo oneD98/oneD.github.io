@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YqCmsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="YqCmsModelStoreContainer">
+    <EntitySet Name="cms_article" EntityType="YqCmsModel.Store.cms_article" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cms_articledetail" EntityType="YqCmsModel.Store.cms_articledetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cms_categoryadmins" EntityType="YqCmsModel.Store.cms_categoryadmins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cms_extend" EntityType="YqCmsModel.Store.cms_extend" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cms_roles" EntityType="YqCmsModel.Store.cms_roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cms_userprofile" EntityType="YqCmsModel.Store.cms_userprofile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cms_users" EntityType="YqCmsModel.Store.cms_users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cms_varticle" EntityType="YqCmsModel.Store.cms_varticle" store:Type="Views" store:Schema="dbo" store:Name="cms_varticle">
+      <DefiningQuery>SELECT 
+      [cms_varticle].[id] AS [id], 
+      [cms_varticle].[typeid] AS [typeid], 
+      [cms_varticle].[cateid] AS [cateid], 
+      [cms_varticle].[catepath] AS [catepath], 
+      [cms_varticle].[articleid] AS [articleid], 
+      [cms_varticle].[parentid] AS [parentid], 
+      [cms_varticle].[layer] AS [layer], 
+      [cms_varticle].[subcount] AS [subcount], 
+      [cms_varticle].[userid] AS [userid], 
+      [cms_varticle].[username] AS [username], 
+      [cms_varticle].[title] AS [title], 
+      [cms_varticle].[summary] AS [summary], 
+      [cms_varticle].[content] AS [content], 
+      [cms_varticle].[viewcount] AS [viewcount], 
+      [cms_varticle].[orderid] AS [orderid], 
+      [cms_varticle].[replypermit] AS [replypermit], 
+      [cms_varticle].[status] AS [status], 
+      [cms_varticle].[ip] AS [ip], 
+      [cms_varticle].[favor] AS [favor], 
+      [cms_varticle].[against] AS [against], 
+      [cms_varticle].[iscommend] AS [iscommend], 
+      [cms_varticle].[istop] AS [istop], 
+      [cms_varticle].[createdate] AS [createdate], 
+      [cms_varticle].[lastreplydate] AS [lastreplydate], 
+      [cms_varticle].[lastreplyuser] AS [lastreplyuser], 
+      [cms_varticle].[lang] AS [lang], 
+      [cms_varticle].[articletypeid] AS [articletypeid], 
+      [cms_varticle].[rename] AS [rename], 
+      [cms_varticle].[url] AS [url], 
+      [cms_varticle].[seotitle] AS [seotitle], 
+      [cms_varticle].[seodescription] AS [seodescription], 
+      [cms_varticle].[seokeywords] AS [seokeywords], 
+      [cms_varticle].[seometas] AS [seometas], 
+      [cms_varticle].[tags] AS [tags], 
+      [cms_varticle].[e_1] AS [e_1], 
+      [cms_varticle].[e_2] AS [e_2], 
+      [cms_varticle].[e_3] AS [e_3], 
+      [cms_varticle].[e_4] AS [e_4], 
+      [cms_varticle].[e_5] AS [e_5], 
+      [cms_varticle].[e_6] AS [e_6], 
+      [cms_varticle].[e_7] AS [e_7], 
+      [cms_varticle].[e_8] AS [e_8], 
+      [cms_varticle].[e_9] AS [e_9], 
+      [cms_varticle].[e_10] AS [e_10]
+      FROM [dbo].[cms_varticle] AS [cms_varticle]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="cms_vuser" EntityType="YqCmsModel.Store.cms_vuser" store:Type="Views" store:Schema="dbo" store:Name="cms_vuser">
+      <DefiningQuery>SELECT 
+      [cms_vuser].[userid] AS [userid], 
+      [cms_vuser].[roleid] AS [roleid], 
+      [cms_vuser].[username] AS [username], 
+      [cms_vuser].[userpwd] AS [userpwd], 
+      [cms_vuser].[userstate] AS [userstate], 
+      [cms_vuser].[usercreatedate] AS [usercreatedate], 
+      [cms_vuser].[lastlogindate] AS [lastlogindate], 
+      [cms_vuser].[lastactivitydate] AS [lastactivitydate], 
+      [cms_vuser].[gender] AS [gender], 
+      [cms_vuser].[nickname] AS [nickname], 
+      [cms_vuser].[signature] AS [signature], 
+      [cms_vuser].[intro] AS [intro], 
+      [cms_vuser].[birth] AS [birth], 
+      [cms_vuser].[location] AS [location], 
+      [cms_vuser].[website] AS [website], 
+      [cms_vuser].[qq] AS [qq], 
+      [cms_vuser].[sina] AS [sina], 
+      [cms_vuser].[facebook] AS [facebook], 
+      [cms_vuser].[twitter] AS [twitter], 
+      [cms_vuser].[medals] AS [medals], 
+      [cms_vuser].[phone] AS [phone], 
+      [cms_vuser].[email] AS [email], 
+      [cms_vuser].[isSendEmail] AS [isSendEmail]
+      FROM [dbo].[cms_vuser] AS [cms_vuser]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__cms_artic__artic__36B12243" Association="YqCmsModel.Store.FK__cms_artic__artic__36B12243">
+      <End Role="cms_article" EntitySet="cms_article" />
+      <End Role="cms_articledetail" EntitySet="cms_articledetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_exten__artic__45F365D3" Association="YqCmsModel.Store.FK__cms_exten__artic__45F365D3">
+      <End Role="cms_article" EntitySet="cms_article" />
+      <End Role="cms_extend" EntitySet="cms_extend" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_userp__useri__628FA481" Association="YqCmsModel.Store.FK__cms_userp__useri__628FA481">
+      <End Role="cms_users" EntitySet="cms_users" />
+      <End Role="cms_userprofile" EntitySet="cms_userprofile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cms_users__rolei__59FA5E80" Association="YqCmsModel.Store.FK__cms_users__rolei__59FA5E80">
+      <End Role="cms_roles" EntitySet="cms_roles" />
+      <End Role="cms_users" EntitySet="cms_users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="cms_article">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="typeid" Type="int" Nullable="false" />
+    <Property Name="cateid" Type="int" Nullable="false" />
+    <Property Name="catepath" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="articleid" Type="bigint" Nullable="false" />
+    <Property Name="parentid" Type="bigint" Nullable="false" />
+    <Property Name="layer" Type="int" Nullable="false" />
+    <Property Name="subcount" Type="int" Nullable="false" />
+    <Property Name="userid" Type="bigint" Nullable="false" />
+    <Property Name="username" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="summary" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="content" Type="ntext" Nullable="false" />
+    <Property Name="viewcount" Type="int" Nullable="false" />
+    <Property Name="orderid" Type="int" Nullable="false" />
+    <Property Name="replypermit" Type="tinyint" Nullable="false" />
+    <Property Name="status" Type="tinyint" Nullable="false" />
+    <Property Name="ip" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="favor" Type="int" Nullable="false" />
+    <Property Name="against" Type="int" Nullable="false" />
+    <Property Name="iscommend" Type="tinyint" Nullable="false" />
+    <Property Name="istop" Type="tinyint" Nullable="false" />
+    <Property Name="createdate" Type="datetime" Nullable="false" />
+    <Property Name="lastreplydate" Type="datetime" Nullable="false" />
+    <Property Name="lastreplyuser" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="lang" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="articletypeid" Type="int" Nullable="false" />
+    <Property Name="rename" Type="nvarchar" Nullable="false" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="cms_articledetail">
+    <Key>
+      <PropertyRef Name="articleid" />
+    </Key>
+    <Property Name="articleid" Type="bigint" Nullable="false" />
+    <Property Name="seotitle" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="seodescription" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="seokeywords" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="seometas" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="tags" Type="nvarchar" Nullable="false" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="cms_categoryadmins">
+    <Key>
+      <PropertyRef Name="cateid" />
+    </Key>
+    <Property Name="cateid" Type="int" Nullable="false" />
+    <Property Name="admins" Type="nvarchar" Nullable="false" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="cms_extend">
+    <Key>
+      <PropertyRef Name="articleid" />
+    </Key>
+    <Property Name="articleid" Type="bigint" Nullable="false" />
+    <Property Name="e_1" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_2" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_3" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_4" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_5" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_6" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="e_7" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="e_8" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="e_9" Type="ntext" Nullable="false" />
+    <Property Name="e_10" Type="ntext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cms_roles">
+    <Key>
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Name="roleid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="rolename" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cms_userprofile">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="bigint" Nullable="false" />
+    <Property Name="gender" Type="int" />
+    <Property Name="nickname" Type="nvarchar" MaxLength="100" />
+    <Property Name="signature" Type="nvarchar" MaxLength="500" />
+    <Property Name="intro" Type="nvarchar" MaxLength="2000" />
+    <Property Name="birth" Type="datetime" />
+    <Property Name="location" Type="nvarchar" MaxLength="500" />
+    <Property Name="website" Type="nvarchar" MaxLength="500" />
+    <Property Name="qq" Type="nvarchar" MaxLength="50" />
+    <Property Name="sina" Type="nvarchar" MaxLength="200" />
+    <Property Name="facebook" Type="nvarchar" MaxLength="200" />
+    <Property Name="twitter" Type="nvarchar" MaxLength="200" />
+    <Property Name="medals" Type="nvarchar" MaxLength="500" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="isSendEmail" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cms_users">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="roleid" Type="int" Nullable="false" />
+    <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="userpwd" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="userstate" Type="int" Nullable="false" />
+    <Property Name="usercreatedate" Type="datetime" Nullable="false" />
+    <Property Name="lastlogindate" Type="datetime" Nullable="false" />
+    <Property Name="lastactivitydate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“YQtest.dbo.cms_varticle”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="cms_varticle">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="typeid" Type="int" Nullable="false" />
+    <Property Name="cateid" Type="int" Nullable="false" />
+    <Property Name="catepath" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="articleid" Type="bigint" Nullable="false" />
+    <Property Name="parentid" Type="bigint" Nullable="false" />
+    <Property Name="layer" Type="int" Nullable="false" />
+    <Property Name="subcount" Type="int" Nullable="false" />
+    <Property Name="userid" Type="bigint" Nullable="false" />
+    <Property Name="username" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="summary" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="content" Type="ntext" Nullable="false" />
+    <Property Name="viewcount" Type="int" Nullable="false" />
+    <Property Name="orderid" Type="int" Nullable="false" />
+    <Property Name="replypermit" Type="tinyint" Nullable="false" />
+    <Property Name="status" Type="tinyint" Nullable="false" />
+    <Property Name="ip" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="favor" Type="int" Nullable="false" />
+    <Property Name="against" Type="int" Nullable="false" />
+    <Property Name="iscommend" Type="tinyint" Nullable="false" />
+    <Property Name="istop" Type="tinyint" Nullable="false" />
+    <Property Name="createdate" Type="datetime" Nullable="false" />
+    <Property Name="lastreplydate" Type="datetime" Nullable="false" />
+    <Property Name="lastreplyuser" Type="nchar" Nullable="false" MaxLength="20" />
+    <Property Name="lang" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="articletypeid" Type="int" Nullable="false" />
+    <Property Name="rename" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="url" Type="nvarchar" MaxLength="60" />
+    <Property Name="seotitle" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="seodescription" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="seokeywords" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="seometas" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="tags" Type="nvarchar" Nullable="false" MaxLength="60" />
+    <Property Name="e_1" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_2" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_3" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_4" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_5" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="e_6" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="e_7" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="e_8" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="e_9" Type="ntext" Nullable="false" />
+    <Property Name="e_10" Type="ntext" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“YQtest.dbo.cms_vuser”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="cms_vuser">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="bigint" Nullable="false" />
+    <Property Name="roleid" Type="int" Nullable="false" />
+    <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="userpwd" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="userstate" Type="int" Nullable="false" />
+    <Property Name="usercreatedate" Type="datetime" Nullable="false" />
+    <Property Name="lastlogindate" Type="datetime" Nullable="false" />
+    <Property Name="lastactivitydate" Type="datetime" Nullable="false" />
+    <Property Name="gender" Type="int" />
+    <Property Name="nickname" Type="nvarchar" MaxLength="100" />
+    <Property Name="signature" Type="nvarchar" MaxLength="500" />
+    <Property Name="intro" Type="nvarchar" MaxLength="2000" />
+    <Property Name="birth" Type="datetime" />
+    <Property Name="location" Type="nvarchar" MaxLength="500" />
+    <Property Name="website" Type="nvarchar" MaxLength="500" />
+    <Property Name="qq" Type="nvarchar" MaxLength="50" />
+    <Property Name="sina" Type="nvarchar" MaxLength="200" />
+    <Property Name="facebook" Type="nvarchar" MaxLength="200" />
+    <Property Name="twitter" Type="nvarchar" MaxLength="200" />
+    <Property Name="medals" Type="nvarchar" MaxLength="500" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="isSendEmail" Type="bit" />
+  </EntityType>
+  <Association Name="FK__cms_artic__artic__36B12243">
+    <End Role="cms_article" Type="YqCmsModel.Store.cms_article" Multiplicity="1" />
+    <End Role="cms_articledetail" Type="YqCmsModel.Store.cms_articledetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="cms_article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cms_articledetail">
+        <PropertyRef Name="articleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_exten__artic__45F365D3">
+    <End Role="cms_article" Type="YqCmsModel.Store.cms_article" Multiplicity="1" />
+    <End Role="cms_extend" Type="YqCmsModel.Store.cms_extend" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="cms_article">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cms_extend">
+        <PropertyRef Name="articleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_userp__useri__628FA481">
+    <End Role="cms_users" Type="YqCmsModel.Store.cms_users" Multiplicity="1" />
+    <End Role="cms_userprofile" Type="YqCmsModel.Store.cms_userprofile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="cms_users">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="cms_userprofile">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cms_users__rolei__59FA5E80">
+    <End Role="cms_roles" Type="YqCmsModel.Store.cms_roles" Multiplicity="1" />
+    <End Role="cms_users" Type="YqCmsModel.Store.cms_users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cms_roles">
+        <PropertyRef Name="roleid" />
+      </Principal>
+      <Dependent Role="cms_users">
+        <PropertyRef Name="roleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="cms_createarticle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="typeid" Type="int" Mode="In" />
+    <Parameter Name="cateid" Type="int" Mode="In" />
+    <Parameter Name="catepath" Type="nvarchar" Mode="In" />
+    <Parameter Name="articleid" Type="bigint" Mode="In" />
+    <Parameter Name="parentid" Type="bigint" Mode="In" />
+    <Parameter Name="layer" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="bigint" Mode="In" />
+    <Parameter Name="username" Type="nchar" Mode="In" />
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="summary" Type="nvarchar" Mode="In" />
+    <Parameter Name="content" Type="ntext" Mode="In" />
+    <Parameter Name="replypermit" Type="tinyint" Mode="In" />
+    <Parameter Name="status" Type="tinyint" Mode="In" />
+    <Parameter Name="ip" Type="nvarchar" Mode="In" />
+    <Parameter Name="seotitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="seodescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="seokeywords" Type="nvarchar" Mode="In" />
+    <Parameter Name="seometas" Type="nvarchar" Mode="In" />
+    <Parameter Name="rename" Type="nvarchar" Mode="In" />
+    <Parameter Name="tags" Type="nvarchar" Mode="In" />
+    <Parameter Name="iscommend" Type="tinyint" Mode="In" />
+    <Parameter Name="istop" Type="tinyint" Mode="In" />
+    <Parameter Name="createdate" Type="datetime" Mode="In" />
+    <Parameter Name="lang" Type="nchar" Mode="In" />
+    <Parameter Name="articletypeid" Type="int" Mode="In" />
+    <Parameter Name="e_1" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_2" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_3" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_4" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_5" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_6" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_7" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_8" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_9" Type="ntext" Mode="In" />
+    <Parameter Name="e_10" Type="ntext" Mode="In" />
+  </Function>
+  <Function Name="cms_deletearticle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="aid" Type="bigint" Mode="In" />
+    <Parameter Name="parentid" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="cms_initializeExtensionField" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cateids" Type="varchar" Mode="In" />
+    <Parameter Name="field" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="cms_updatearticle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="aid" Type="bigint" Mode="In" />
+    <Parameter Name="typeid" Type="int" Mode="In" />
+    <Parameter Name="cateid" Type="int" Mode="In" />
+    <Parameter Name="catepath" Type="nvarchar" Mode="In" />
+    <Parameter Name="parentid" Type="bigint" Mode="In" />
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="summary" Type="nvarchar" Mode="In" />
+    <Parameter Name="content" Type="ntext" Mode="In" />
+    <Parameter Name="replypermit" Type="tinyint" Mode="In" />
+    <Parameter Name="status" Type="tinyint" Mode="In" />
+    <Parameter Name="seotitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="seodescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="seokeywords" Type="nvarchar" Mode="In" />
+    <Parameter Name="seometas" Type="nvarchar" Mode="In" />
+    <Parameter Name="rename" Type="nvarchar" Mode="In" />
+    <Parameter Name="tags" Type="nvarchar" Mode="In" />
+    <Parameter Name="iscommend" Type="tinyint" Mode="In" />
+    <Parameter Name="istop" Type="tinyint" Mode="In" />
+    <Parameter Name="articletypeid" Type="int" Mode="In" />
+    <Parameter Name="e_1" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_2" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_3" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_4" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_5" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_6" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_7" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_8" Type="nvarchar" Mode="In" />
+    <Parameter Name="e_9" Type="ntext" Mode="In" />
+    <Parameter Name="e_10" Type="ntext" Mode="In" />
+  </Function>
+</Schema>

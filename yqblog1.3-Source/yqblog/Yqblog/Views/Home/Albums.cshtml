@@ -1,0 +1,57 @@
+﻿@model Yqblog.ViewModels.AlbumsViewModel
+@using lang = Resource.Web;
+@{
+    ViewBag.Category = Model.Category;
+}
+@section Seo{
+    @Html.Raw(ViewBag.Seo)
+}
+<div class="row">
+    <div class="span12">
+
+    <ul class="breadcrumb">
+    <li>@Html.ActionLink(lang.HomePage, "Index", "Home") <span class="divider">/</span></li>
+    @Html.Raw(Model.WebPath)
+    </ul>
+
+    </div>
+    <div class="span12">
+        <div class="albums-wrap clearfix">
+            @if (Model.Albums.Any())
+            {
+                var headstr = "";
+                <div class="albumlist">
+                    @foreach (var item in Model.Albums)
+                    {
+                        if (item.ImgCount <= 0)
+                        {
+                            continue;
+                        }
+                        if (headstr != item.Category.CateName)
+                        {
+                            headstr = item.Category.CateName;
+                            <div class="albums-folder"><h3>@item.Category.CateName</h3></div> 
+                        }
+                        <div class="album-box">
+                            <a href="@Html.YqUrl(item)" class="album-cover"><img src="@Url.Content("~" + Html.Thumbnail(item.Cover.Src, "200x200"))" onerror="this.onerror=null;this.src='@Url.Content("~/content/image/no_photo_big.gif")';" alt="@item.Varticle.summary"/>
+                                <p class="album-info">
+                                    @item.Varticle.title
+                                </p>
+                            </a>
+                            @item.ImgCount 
+                            @if (item.Varticle.subcount > 0)
+                            {   
+                                  <a title="Comment" href="@Html.YqUrl(item)#commentA"> @item.Varticle.subcount @Html.JudgeSingularOrPlural(item.Varticle.subcount, lang.Comment, lang.Comments)</a> 
+                            }                     
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+
+
+
